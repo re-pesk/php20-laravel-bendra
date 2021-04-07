@@ -1,15 +1,15 @@
 # Vartotojo duomenys: keliai ir metodai
 
 Keliai ir metodai
-| Metodas   | endpointas            | vardas        | UserController | Paskirtis         | rolė                |
-|           |                       |               | metodas        |                   |                     |
+
+| Metodas   | endpointas           | vardas | UserController metodas | Paskirtis         | rolė                |
 |-----------|-----------------------|---------------|----------------|-------------------|---------------------|
 | GET|HEAD  | api/users             | users.index   | index          | sąrašas           | adminas             |
 | POST      | api/users             | users.store   | store          | vartotojo kūrimas | adminas, svečias    |
-| GET|HEAD  | api/users/create      | users.create  | create         | kūrimo forma      | reikalinga tik web? |
 | GET|HEAD  | api/users/{user}      | users.show    | show           | duomenų rodymas   | adminas, vartotojas |
 | PUT|PATCH | api/users/{user}      | users.update  | update         | atnaujinimas      | adminas, vartotojas |
 | DELETE    | api/users/{user}      | users.destroy | destroy        | trynimas          | adminas, vartotojas |
+| GET|HEAD  | api/users/create      | users.create  | create         | kūrimo forma      | reikalinga tik web? |
 | GET|HEAD  | api/users/{user}/edit | users.edit    | edit           | redagavimo forma  | reikalinga tik web? |
 
 Pastabos:

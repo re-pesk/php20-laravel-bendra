@@ -1,4 +1,7 @@
 {
+    "name": "php20-laravel-bendra",
+    "version": "0.0.1",
+    "description": "Laravelio projektas",
     "private": true,
     "scripts": {
         "dev": "npm run development",

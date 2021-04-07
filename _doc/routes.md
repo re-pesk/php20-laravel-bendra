@@ -12,14 +12,11 @@ Keliai ir metodai
 | DELETE    | api/users/{user}      | users.destroy | destroy        | trynimas          | adminas, vartotojas |
 | GET|HEAD  | api/users/{user}/edit | users.edit    | edit           | redagavimo forma  | reikalinga tik web? |
 
-
- 
-
 Pastabos:
 ne visos funkcijos būtinai turi būti sukurtos:
 
 kai kurie endpointai turi prasmę tik web routuose, nes jų tikslas - pateikti redagavimo formas.
- 
+
 - GET/api/users/create - API backende nereikalingas, nes formos oš backendo nereikia, o duomenys į backendą gali būti siunčiami per POST/api/users
 - GET/api/users/{user}/edit - API backende nereikalingas, duomenis galima paimti ir per GET/api/users/{user}, duomenys į backendą siunčiami per PUT/api/users/{user}
 

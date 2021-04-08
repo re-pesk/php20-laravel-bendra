@@ -1,4 +1,7 @@
 {
+    "name": "php20-laravel-react",
+    "version": "0.0.1",
+    "description": "Laravelis su Reactu",
     "private": true,
     "scripts": {
         "dev": "npm run development",

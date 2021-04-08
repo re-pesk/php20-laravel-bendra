@@ -25,4 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });*/
 
-Route::resource('users', UserController::class);
+Route::get('/users/{user}', [UserController::class, 'getUserInfo']);
+Route::put('/users/{user}', [UserController::class, 'updateUserInfo']);

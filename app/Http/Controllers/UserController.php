@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:sanctum'])->only(['logout']);
+        $this->middleware(['auth:sanctum'])->only([
+            /*'index',*/
+            'show',
+            'update',
+            'destroy',
+        ]);
     }
 
     /**
@@ -18,7 +25,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::all();
     }
 
     /**
@@ -28,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return response([], 404);
     }
 
     /**
@@ -39,7 +46,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'name' => 'required|string',
+        //     'email' => 'required|string|unique:users,email',
+        //     'password' => 'required|string|confirmed',
+        // ]);
+
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => bcrypt($request->password),
+        // ]);
+
+        // $token = $user->createToken('myapptoken')->plainTextToken;
+
+        // $response = [
+        //     'user' => $user,
+        //     'token' => $token,
+        // ];
+
+        // return response($response, 201);
     }
 
     /**

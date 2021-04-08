@@ -28,7 +28,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        $token = $user->createToken('php20-laravel-react')->plainTextToken;
 
         $response = [
             'user' => $user,
@@ -49,11 +49,15 @@ class AuthController extends Controller
             'email' => $request->email,
         ])->first();
 
-        if (!$user || !Hash::check($user->password, $request->password)) {
+        echo $user->password, "\n";
+        echo $request->password, "\n";
+        echo Hash::check($request->password, $user->password) ? 'true' : 'false', "\n";
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response(['message' => "Bad credencials"], 401);
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        $token = $user->createToken('php20-laravel-react')->plainTextToken;
 
         $response = [
             'user' => $user,

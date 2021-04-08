@@ -1,5 +1,5 @@
 import React from 'react';
-import FooterLink from './FooterLink';
+import FooterLink from './footer/FooterLink';
 
 export default function Footer({ data }) {
     const { laravelVersion, phpVersion } = data;

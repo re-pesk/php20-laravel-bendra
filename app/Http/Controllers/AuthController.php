@@ -49,10 +49,6 @@ class AuthController extends Controller
             'email' => $request->email,
         ])->first();
 
-        echo $user->password, "\n";
-        echo $request->password, "\n";
-        echo Hash::check($request->password, $user->password) ? 'true' : 'false', "\n";
-
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response(['message' => "Bad credencials"], 401);
         }

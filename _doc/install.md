@@ -2,6 +2,8 @@
 
 # Laravelis su Sanctum API ir React'u
 
+Veiksmai, atlikti kuriant šabloną
+
 ## Backendas
 
 ### `Laravel'io` instaliavimas

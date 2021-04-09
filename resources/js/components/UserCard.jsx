@@ -14,20 +14,34 @@ const UserCard = () => {
             .catch(error => console.error(error));
     }, []);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.put('https://127.0.0.1:3000/api/users/10', {
+            name: e.target.name.value,
+            lastname: e.target.lastname.value,
+            email: e.target.email.value,
+            password: e.target.password.value
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => console.error(error));
+    }
+
     return (
-        // <h1>Test</h1>
-        <Form className="w-25 mx-auto mt-5">
+        <Form onSubmit={handleSubmit} className="w-25 mx-auto mt-5">
             <Form.Label>Firstname</Form.Label>
-            <Form.Control type="text" defaultValue={user.name} />
+            <Form.Control name="firstname" type="text" defaultValue={user.name} />
 
             <Form.Label className="mt-3">Lastname</Form.Label>
-            <Form.Control type="text" defaultValue={user.lastname} />
+            <Form.Control name="lastname" type="text" defaultValue={user.lastname} />
 
             <Form.Label className="mt-3">Email</Form.Label>
-            <Form.Control type="email" defaultValue={user.email} />
+            <Form.Control name="email" type="email" defaultValue={user.email} />
 
             <Form.Label className="mt-3">Password</Form.Label>
-            <Form.Control type="password" placeholder="Type in new password" />
+            <Form.Control name="password" type="password" placeholder="Type in new password" />
 
             <Button className="mt-3" variant="primary" type="submit">
                 Update info

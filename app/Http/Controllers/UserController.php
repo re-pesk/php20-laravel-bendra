@@ -29,6 +29,6 @@ class UserController extends Controller
     public function updateUserInfo(Request $request, User $user)
     {
         $user->update($request->all());
-        return "Updated";
+        return Response($user);
     }
 }

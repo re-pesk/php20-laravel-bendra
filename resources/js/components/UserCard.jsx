@@ -7,7 +7,7 @@ const UserCard = () => {
     const [user, setUser] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get('http://127.0.0.1:3000/api/users/10')
+        axios.get(window.location.origin + '/api/users/10')
             .then(response => {
                 setUser(response.data)
             })
@@ -16,9 +16,9 @@ const UserCard = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        axios.put('https://127.0.0.1:3000/api/users/10', {
-            name: e.target.name.value,
+        // console.log(e.target);
+        axios.put(window.location.origin + '/api/users/10', {
+            name: e.target.firstname.value,
             lastname: e.target.lastname.value,
             email: e.target.email.value,
             password: e.target.password.value

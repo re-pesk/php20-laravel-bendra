@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,7 +29,24 @@ class UserController extends Controller
      */
     public function updateUserInfo(Request $request, User $user)
     {
-        $user->update($request->all());
+        $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'email' =>'required|email',
+            // 'password' => 'min:8'
+        ]);
+
+        $values = [
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email
+        ];
+
+        if($request->password) {
+            $values['password'] = Hash::make($request->password); 
+        }
+
+        $user->update($values);
         return Response($user);
     }
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function Navigation() {
     return (
@@ -16,6 +16,9 @@ export default function Navigation() {
                 <LinkContainer to="/test">
                     <Nav.Link>Test</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/search">
+                    <Nav.Link>Search</Nav.Link>
+                </LinkContainer>
             </Nav>
             <Nav>
                 <Nav.Link href="login">Login</Nav.Link>
@@ -23,6 +26,5 @@ export default function Navigation() {
                 <Nav.Link href="logout">Logout</Nav.Link>
             </Nav>
         </Navbar>
-
     );
 }

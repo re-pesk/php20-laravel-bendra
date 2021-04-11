@@ -12,17 +12,21 @@ const Login = () => {
 
     useEffect(async () => {
         if (state) {
+            const csrfUrl = `${process.env.MIX_BACK_URL}/sanctum/csrf-cookie`;
+            axios.get(csrfUrl)
+                .then((response) => setResponseData({ _error: false, response }))
+                .catch((error) => setResponseData({ _error: true, ...error }));
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             const headers = {
                 // 'Content-Type': 'application/json',
                 Accept: 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRF-TOKEN': csrfToken,
             };
-            const url = `${window.location.origin}/api/login`;
-            axios.post(url, userData, { headers })
-                .then((response) => response.data)
-                .then((response) => {
-                    setResponseData(...response);
-                })
-                .catch((error) => setResponseData(...error));
+            const url = `${process.env.MIX_BACK_URL}/api/login`;
+            axios.post(url, userData, headers)
+                .then((response) => setResponseData({ _error: false, ...response.data }))
+                .catch((error) => setResponseData({ _error: true, ...error }));
         }
         setState(false);
     }, [state]);
@@ -30,7 +34,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
-        alert(JSON.stringify(userData));
+        // alert(JSON.stringify(userData));
         setState(true);
     };
 

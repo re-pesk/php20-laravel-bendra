@@ -19,9 +19,7 @@ const Register = () => {
             };
             const url = `${window.location.origin}/api/register`;
             axios.post(url, userData, { headers })
-                .then((response) => {
-                    setResponseData({ _error: false, ...response.data });
-                })
+                .then((response) => setResponseData({ _error: false, ...response.data }))
                 .catch((error) => setResponseData({ _error: true, ...error }));
         }
         setState(false);
@@ -41,7 +39,7 @@ const Register = () => {
 
     return (
         <>
-            <p>{JSON.stringify(responseData)}</p>
+            <pre>{JSON.stringify(responseData, null, 4)}</pre>
             <Form
                 className="w-25 mx-auto mt-5"
                 onSubmit={handleSubmit}

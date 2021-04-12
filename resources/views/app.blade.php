@@ -38,7 +38,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div id="root"></div>
+        <div id="app"></div>
         <script type="module">
             window.welcomeData = {
                 isAuthenticated: "{{ $auth }}",
@@ -48,6 +48,6 @@
                 phpVersion: "{{ PHP_VERSION }}"
             }
         </script>
-        <script src="{{ asset('js/main.js') }}" defer></script>
+        <script src="{{ mix('js/main.js') }}" defer></script>
     </body>
 </html>

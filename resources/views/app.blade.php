@@ -48,6 +48,10 @@
                 phpVersion: "{{ PHP_VERSION }}"
             }
         </script>
-        <script src="{{ mix('js/main.js') }}" defer></script>
+        @if(env('APP_ENV') === 'local')
+            <script src="http://localhost:3000/main.js"></script>
+        @else
+            <script src="/main.js"></script>
+        @endif
     </body>
 </html>

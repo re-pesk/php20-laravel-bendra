@@ -4,9 +4,10 @@ import User from './welcome/User';
 import LaravelLogo from './welcome/LaravelLogo';
 import Grid from './welcome/Grid';
 import Footer from './welcome/Footer';
+import welcomeData from '../data/data';
 
 export default function Welcome() {
-    const { isAuthenticated, laravelVersion, phpVersion, url, urlRegister } = window.welcomeData;
+    const { isAuthenticated, laravelVersion, phpVersion, url, urlRegister } = welcomeData;
     let linkText = 'Home';
     if (isAuthenticated) {
         linkText = 'Log in';

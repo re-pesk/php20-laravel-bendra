@@ -46,13 +46,16 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
+        "npm-start": [
+            "npm start"
+        ],
         "npm-run-watch-poll": [
             "npm run watch-poll"
         ],
         "php-artisan-serve": [
             "@php artisan serve"
         ],
-        "start": "@parallel npm-run-watch-poll php-artisan-serve"
+        "start": "@parallel npm-start php-artisan-serve"
     },
     "extra": {
         "laravel": {
